@@ -17,16 +17,20 @@ REPO="${1:-daisy19gnu/blinkgtk-dist}"
 
 data="$(gh api "repos/${REPO}/releases?per_page=100" 2>/dev/null || echo '[]')"
 
-echo "$data" | JSON="$JSON" REPO="$REPO" python3 -c '
-import os, sys, json
-repo = os.environ["REPO"]
-as_json = os.environ["JSON"] == "1"
+printf '%s' "$data" | python3 - "$REPO" "$JSON" <<'PY'
+import sys, json
+
+repo = sys.argv[1]
+as_json = sys.argv[2] == "1"
+
 try:
     data = json.load(sys.stdin)
 except Exception:
     data = []
-if isinstance(data, dict):  # error object from the API
-    print("Error / no access:", data.get("message", "unknown"), file=sys.stderr); sys.exit(1)
+
+if isinstance(data, dict):  # API error object
+    sys.stderr.write("Error / no access: %s\n" % data.get("message", "unknown"))
+    sys.exit(1)
 
 rows = []
 total = 0
@@ -35,20 +39,22 @@ for rel in data:
     for a in rel.get("assets", []):
         c = int(a.get("download_count", 0))
         total += c
-        rows.append({"tag": tag, "asset": a.get("name", "?"), "count": c})
+        rows.append((tag, a.get("name", "?"), c))
 
 if as_json:
-    print(json.dumps({"repo": repo, "total": total, "assets": rows}, ensure_ascii=False, indent=2))
+    out = {"repo": repo, "total": total,
+           "assets": [{"tag": t, "asset": n, "count": c} for (t, n, c) in rows]}
+    print(json.dumps(out, ensure_ascii=False, indent=2))
     sys.exit(0)
 
-print(f"Download counts for {repo}")
+print("Download counts for %s" % repo)
 print("=" * 60)
 if not rows:
-    print("(no release assets yet — counts appear once binaries are uploaded)")
+    print("(no release assets yet - counts appear once binaries are uploaded)")
 else:
-    w = max(len(r["asset"]) for r in rows)
-    for r in rows:
-        print(f'  {r["tag"]:14}  {r["asset"]:<{w}}  {r["count"]:>9,}')
+    w = max(len(n) for (_, n, _) in rows)
+    for (t, n, c) in rows:
+        print("  %-14s  %-*s  %9d" % (t, w, n, c))
     print("-" * 60)
-    print(f"  {\"TOTAL\":<{14+2+w}}  {total:>9,}")
-'
+    print("  %-*s  %9d" % (14 + 2 + w, "TOTAL", total))
+PY
