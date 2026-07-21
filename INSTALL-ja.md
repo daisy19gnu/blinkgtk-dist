@@ -34,7 +34,12 @@ sudo dnf install ./blinkgtk-bin-gir-<ver>.fc44.x86_64.rpm
 sudo dnf install ./blinkgtk-bin-doc-<ver>.fc44.noarch.rpm
 ```
 
-RPM は GPG 署名済みです。署名検証を行う場合は公開鍵をインポートしてください。
+RPM は GPG 署名済みです。公開鍵 `BlinkGTK-GPG-KEY.asc`(本リポジトリ同梱)で検証できます:
+
+```sh
+sudo rpm --import BlinkGTK-GPG-KEY.asc
+rpm --checksig blinkgtk-bin-<ver>.fc44.x86_64.rpm
+```
 
 ## 2. DEB(Debian / Ubuntu / amd64)
 

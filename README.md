@@ -47,7 +47,14 @@ sudo tar -C / -xzf blinkgtk-<ver>-linux-x86_64.tar.gz && sudo ldconfig
 sha256sum -c SHA256SUMS --ignore-missing
 ```
 
-RPM は GPG 署名済みです。RPMs are GPG-signed.
+RPM は GPG 署名済みです。公開鍵は本リポジトリの [`BlinkGTK-GPG-KEY.asc`](./BlinkGTK-GPG-KEY.asc) です:
+
+RPMs are GPG-signed. The public key is [`BlinkGTK-GPG-KEY.asc`](./BlinkGTK-GPG-KEY.asc) in this repository:
+
+```sh
+sudo rpm --import BlinkGTK-GPG-KEY.asc
+rpm --checksig blinkgtk-bin-<ver>.fc44.x86_64.rpm    # 'digests signatures OK' を確認
+```
 
 ## バージョン一覧 / Versions
 

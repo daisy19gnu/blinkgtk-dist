@@ -34,7 +34,12 @@ sudo dnf install ./blinkgtk-bin-gir-<ver>.fc44.x86_64.rpm
 sudo dnf install ./blinkgtk-bin-doc-<ver>.fc44.noarch.rpm
 ```
 
-RPMs are GPG-signed; import the public key to verify signatures.
+RPMs are GPG-signed. Verify with the bundled public key `BlinkGTK-GPG-KEY.asc`:
+
+```sh
+sudo rpm --import BlinkGTK-GPG-KEY.asc
+rpm --checksig blinkgtk-bin-<ver>.fc44.x86_64.rpm
+```
 
 ## 2. DEB (Debian / Ubuntu / amd64)
 
