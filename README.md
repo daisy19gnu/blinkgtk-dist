@@ -54,16 +54,3 @@ RPM は GPG 署名済みです。RPMs are GPG-signed.
 | バージョン / Version | 日付 / Date | Chromium | 概要 / Summary |
 |---|---|---|---|
 | v1.1.0-build2(準備中 / upcoming) | 2026-07-21 | 150.0.7871.46 | アイドル時 CPU 解消 (#115)・大規模リフロー後の永続白紙の根本修正 (#120) / Idle-CPU fix; root fix for persistent blank pages after heavy reflow |
-
-## ダウンロード数のカウント / Download counts
-
-GitHub は各 Release アセットの **`download_count`** を自動集計します(アップロード時点から)。サーバー不要・無料・正確。集計は `tools/download-counts.sh` で取得できます(表示は任意、当面は非公開)。
-
-GitHub automatically tracks `download_count` per release asset. Aggregate with `tools/download-counts.sh` (display optional; private for now).
-
-```sh
-tools/download-counts.sh                 # このリポジトリの全 Release DL 数を集計
-tools/download-counts.sh owner/other     # 他リポジトリを対象にする場合
-```
-
-将来サイトに表示する場合は、public API `https://api.github.com/repos/daisy19gnu/blinkgtk-dist/releases` の `assets[].download_count` を合計するだけで表示できます(サーバー不要)。
