@@ -13,8 +13,8 @@
 | `blinkgtk-bin-devel-1.1.0-build2.fc44.x86_64.rpm` | 28K | `09922667f5e486aedd656b28f50e40744df57004663e4bee5a159769d259bea1` |
 | `blinkgtk-bin-doc-1.1.0-build2.fc44.noarch.rpm` | 332K | `a2b2c095396b7962ee1ece4bd5b46e8cb7adb6dace321c2e386133ba1f0feeeb` |
 | `blinkgtk-bin-gir-1.1.0-build2.fc44.x86_64.rpm` | 28K | `a29ee3eb74ef15548bcdaed610de384354167296bb79025debe52f92beb319a9` |
-| `libblinkgtk-0.1-0_1.1.0-build2_amd64.deb` | 135M | `8392524f92ba0e5fedd26568174b8c1db0b440301116e0a891cb599d12315da6` |
-| `libblinkgtk-0.1-dev_1.1.0-build2_amd64.deb` | 24K | `0d44c01f44dc94c7046ae00bce90c6c5b4a67b126085b300f70c57fed0996f34` |
+| `libblinkgtk-0.1-0_1.1.0-build2_amd64.deb` | 135M | `771df79324a736166e69443269ca94c9c8528e72d049715fa300e823e5ce885b` |
+| `libblinkgtk-0.1-dev_1.1.0-build2_amd64.deb` | 24K | `8f2b4687ec4090a9b33c73ccd87195e61cc0034b740d5b4e6cff7f5062538811` |
 
 ## バイナリ tarball (tar.gz / tar.bz2 は同一内容 / identical contents)
 
