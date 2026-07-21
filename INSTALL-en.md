@@ -77,6 +77,8 @@ sudo apt install libgtk-4-1 libnss3 libasound2t64 libcups2t64 libdbus-1-3 \
 
 (Package names vary slightly by release; the `t64` suffix is used on Ubuntu 24.04+.)
 
+> **When upgrading**: if you previously extracted a tarball to a non-root prefix (e.g. `~/blinkgtk`), **remove the old version's directory before extracting** the new one (mixing old shared libraries can cause malfunctions). RPM/DEB are replaced automatically by the package manager.
+
 ### 3-2. Extract
 
 The layout is FHS (`usr/`, `etc/`), so extract to root:

@@ -65,9 +65,11 @@ Report problems or ask questions via **[Issues](https://github.com/daisy19gnu/bl
 > 本配布物は無保証です。Issue への対応はベストエフォートで、商用サポートではありません(反映を保証しません)。 / Packages are provided as-is; issue handling is best-effort and not commercial support.
 >
 > 商用サポート・受託開発のご相談は <https://blinkgtk.com/> へ。 / For commercial support or custom development, see <https://blinkgtk.com/>.
+>
+> BlinkGTK は上流 Chromium に追従します。Web の描画・互換性に関する挙動は上流 Chromium と共通のことが多く、原因が上流にある場合は BlinkGTK 側で修正できないことがあります。 / BlinkGTK tracks upstream Chromium; web rendering/compatibility behavior is often shared with upstream, and some issues originate upstream and cannot be fixed in BlinkGTK.
 
 ## バージョン一覧 / Versions
 
 | バージョン / Version | 日付 / Date | Chromium | 概要 / Summary |
 |---|---|---|---|
-| v1.1.0-build2(準備中 / upcoming) | 2026-07-21 | 150.0.7871.46 | アイドル時 CPU 解消 (#115)・大規模リフロー後の永続白紙の根本修正 (#120) / Idle-CPU fix; root fix for persistent blank pages after heavy reflow |
+| **v1.1.0-build2**(初回公開 / first public release) | 2026-07-21 | 150.0.7871.46 | v1.1 系の初回一般公開。アイドル時 CPU 解消 (#115)・大規模リフロー後の永続白紙の根本修正 (#120) / First public v1.1 release. Idle-CPU fix; root fix for persistent blank pages after heavy reflow |
