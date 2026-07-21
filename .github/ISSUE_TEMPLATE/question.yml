@@ -4,7 +4,7 @@ labels: ["question"]
 body:
   - type: markdown
     attributes:
-      value: "無保証・ベストエフォート対応です（商用サポートではありません）。 / As-is, best-effort (not commercial support)."
+      value: "無保証・ベストエフォート対応です（商用サポートではありません）。商用サポートは https://blinkgtk.com/ へ。 / As-is, best-effort (not commercial support). For commercial support see https://blinkgtk.com/"
   - type: textarea
     id: body
     attributes:

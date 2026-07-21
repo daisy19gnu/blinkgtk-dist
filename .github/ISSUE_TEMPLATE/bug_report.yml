@@ -9,6 +9,7 @@ body:
         This is for problems with BlinkGTK **binary packages**. Please provide enough detail to reproduce.
 
         > 無保証・ベストエフォート対応です（商用サポートではなく、反映を保証しません）。 / As-is, best-effort (not commercial support; no guarantee of a fix).
+        > 商用サポートは <https://blinkgtk.com/> へ。 / For commercial support, see https://blinkgtk.com/
   - type: input
     id: version
     attributes:
