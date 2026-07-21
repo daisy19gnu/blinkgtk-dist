@@ -7,6 +7,8 @@ body:
       value: |
         BlinkGTK の配布パッケージに関する不具合報告です。再現に必要な情報をご記入ください。
         This is for problems with BlinkGTK **binary packages**. Please provide enough detail to reproduce.
+
+        > 無保証・ベストエフォート対応です（商用サポートではなく、反映を保証しません）。 / As-is, best-effort (not commercial support; no guarantee of a fix).
   - type: input
     id: version
     attributes:

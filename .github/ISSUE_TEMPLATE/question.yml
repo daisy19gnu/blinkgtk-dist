@@ -2,6 +2,9 @@ name: 質問・要望 / Question or request
 description: 使い方の質問や機能要望 / Usage questions or feature requests
 labels: ["question"]
 body:
+  - type: markdown
+    attributes:
+      value: "無保証・ベストエフォート対応です（商用サポートではありません）。 / As-is, best-effort (not commercial support)."
   - type: textarea
     id: body
     attributes:
