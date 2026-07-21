@@ -9,9 +9,9 @@ This is the public binary distribution repository for BlinkGTK. All artifacts ar
 
 ## バージョン表記について / About version numbers
 
-パッケージ名やパス中の **(例: 、)は API バージョン**です。GTK4 の  や WebKitGTK の  と同じ規約で、**製品バージョン(v1.1.0 等)とは独立**しており、API/ABI に互換性のない変更が入るときにのみ変わります。
+パッケージ名やパス中の **`0.1`(例: `libblinkgtk-0.1.so.0`、`/usr/share/doc/blinkgtk-0.1/`)は API バージョン**です。GTK4 の `gtk-4.0` や WebKitGTK の `webkitgtk-6.0` と同じ規約で、**製品バージョン(v1.1.0 等)とは独立**しており、API/ABI に互換性のない変更が入るときにのみ変わります。
 
-The ** in package names and paths (e.g. , ) is the API version** — the same convention as GTK4's  and WebKitGTK's . It is **independent of the product version** (v1.1.0 etc.) and only changes on incompatible API/ABI revisions.
+The **`0.1` in package names and paths (e.g. `libblinkgtk-0.1.so.0`, `/usr/share/doc/blinkgtk-0.1/`) is the API version** — the same convention as GTK4's `gtk-4.0` and WebKitGTK's `webkitgtk-6.0`. It is **independent of the product version** (v1.1.0 etc.) and only changes on incompatible API/ABI revisions.
 
 ## パッケージの選び方 / Choosing a package
 

@@ -4,7 +4,7 @@
 
 Download packages from [Releases](https://github.com/daisy19gnu/blinkgtk-dist/releases). See [`manifests/`](./manifests/) for package contents.
 
-> **Note**: the  in paths ( etc.) is the **API version** (same convention as GTK4's ). It is independent of the product version (v1.1.0 etc.) and only changes on incompatible API revisions.
+> **Note**: the `0.1` in paths (`blinkgtk-0.1` etc.) is the **API version** (same convention as GTK4's `gtk-4.0`). It is independent of the product version (v1.1.0 etc.) and only changes on incompatible API revisions.
 
 ## 1. RPM (Fedora 44 / x86_64)
 

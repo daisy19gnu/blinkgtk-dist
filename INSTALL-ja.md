@@ -4,7 +4,7 @@
 
 各パッケージは [Releases](https://github.com/daisy19gnu/blinkgtk-dist/releases) からダウンロードしてください。内容物は [`manifests/`](./manifests/) を参照。
 
-> **注**: パス中の ( 等)は **API バージョン**です(GTK4 の  と同じ規約)。製品バージョン(v1.1.0 等)とは独立で、互換性のない API 変更時にのみ変わります。
+> **注**: パス中の `0.1`(`blinkgtk-0.1` 等)は **API バージョン**です(GTK4 の `gtk-4.0` と同じ規約)。製品バージョン(v1.1.0 等)とは独立で、互換性のない API 変更時にのみ変わります。
 
 ## 1. RPM(Fedora 44 / x86_64)
 
