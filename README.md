@@ -56,6 +56,12 @@ sudo rpm --import BlinkGTK-GPG-KEY.asc
 rpm --checksig blinkgtk-bin-<ver>.fc44.x86_64.rpm    # 'digests signatures OK' を確認
 ```
 
+## 不具合報告・質問 / Reporting problems
+
+配布パッケージの不具合や質問は、本リポジトリの **[Issues](https://github.com/daisy19gnu/blinkgtk-dist/issues)** にご報告ください(テンプレートがあります)。報告前に [`INSTALL.md`](./INSTALL.md) のトラブルシューティングもご確認ください。詳しくは [`SUPPORT.md`](./SUPPORT.md)。
+
+Report problems or ask questions via **[Issues](https://github.com/daisy19gnu/blinkgtk-dist/issues)** (templates provided). Please also check the troubleshooting section of [`INSTALL.md`](./INSTALL.md) first. See [`SUPPORT.md`](./SUPPORT.md).
+
 ## バージョン一覧 / Versions
 
 | バージョン / Version | 日付 / Date | Chromium | 概要 / Summary |

@@ -130,3 +130,5 @@ pkg-config --modversion blinkgtk-0.1         # devel 導入時
 | 音が出ない / 動画が再生されない | GStreamer プラグイン不足。`gstreamer1-plugins-good`(Fedora)/ `gstreamer1.0-plugins-good`(Debian)を追加 |
 
 アプリのビルド方法・API は runtime 同梱のドキュメント(`/usr/share/doc/blinkgtk-0.1/` — 名称は API バージョン)を参照してください。
+
+解決しない場合は、本リポジトリの [Issues](https://github.com/daisy19gnu/blinkgtk-dist/issues) にご報告ください(バグ報告テンプレートあり)。

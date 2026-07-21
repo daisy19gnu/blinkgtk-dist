@@ -1,0 +1,63 @@
+name: バグ報告 / Bug report
+description: 配布パッケージの不具合を報告する / Report a problem with a distributed package
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        BlinkGTK の配布パッケージに関する不具合報告です。再現に必要な情報をご記入ください。
+        This is for problems with BlinkGTK **binary packages**. Please provide enough detail to reproduce.
+  - type: input
+    id: version
+    attributes:
+      label: バージョン / Version
+      description: 例 / e.g. v1.1.0-build2
+      placeholder: v1.1.0-buildN
+    validations:
+      required: true
+  - type: dropdown
+    id: package
+    attributes:
+      label: パッケージ形式 / Package format
+      options:
+        - RPM (Fedora)
+        - DEB (Debian/Ubuntu)
+        - tarball (.tar.gz / .tar.bz2)
+    validations:
+      required: true
+  - type: input
+    id: distro
+    attributes:
+      label: ディストリビューション / Distribution
+      description: 例 / e.g. Fedora 44, Ubuntu 25.10
+    validations:
+      required: true
+  - type: textarea
+    id: what
+    attributes:
+      label: 症状 / What happened
+      description: 何が起きたか、期待した動作は何か / What happened and what you expected
+    validations:
+      required: true
+  - type: textarea
+    id: repro
+    attributes:
+      label: 再現手順 / Steps to reproduce
+      description: できるだけ具体的に / As specific as possible
+  - type: textarea
+    id: logs
+    attributes:
+      label: ログ / Logs
+      description: |
+        ターミナルから起動した際の出力を貼ってください。依存不足の切り分けには次も有用です:
+        Paste terminal output. For dependency issues, this is helpful:
+        `ldd /usr/lib64/blinkgtk-0.1/chromium/libcontent.so | grep "not found"`
+      render: shell
+  - type: checkboxes
+    id: env
+    attributes:
+      label: 環境の確認 / Environment checklist
+      options:
+        - label: Wayland セッションで実行している / Running in a Wayland session
+        - label: glibc 2.43 以上 / glibc 2.43 or later
+        - label: INSTALL.md の依存パッケージを導入済み (tarball の場合) / Installed dependencies per INSTALL.md (for tarball)

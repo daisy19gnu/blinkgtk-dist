@@ -1,0 +1,10 @@
+name: 質問・要望 / Question or request
+description: 使い方の質問や機能要望 / Usage questions or feature requests
+labels: ["question"]
+body:
+  - type: textarea
+    id: body
+    attributes:
+      label: 内容 / Details
+    validations:
+      required: true

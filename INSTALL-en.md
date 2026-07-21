@@ -130,3 +130,5 @@ pkg-config --modversion blinkgtk-0.1         # with devel installed
 | No audio / video playback | Missing GStreamer plugins. Add `gstreamer1-plugins-good` (Fedora) / `gstreamer1.0-plugins-good` (Debian) |
 
 For building applications and API usage, see the bundled documentation under `/usr/share/doc/blinkgtk-0.1/` (directory named after the API version).
+
+If this does not help, please report via [Issues](https://github.com/daisy19gnu/blinkgtk-dist/issues) (a bug-report template is provided).
