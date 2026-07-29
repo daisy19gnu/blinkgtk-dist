@@ -74,12 +74,21 @@ Report problems or ask questions via **[Issues](https://github.com/daisy19gnu/bl
 
 ## バージョン一覧 / Versions
 
-| バージョン / Version | 日付 / Date | Chromium | 概要 / Summary |
-|---|---|---|---|
-| **v1.1.0-build5**(最新 / current) | 2026-07-29 | 150.0.7871.46 | 同梱サンプルを最小構成の `blinkgtk_browser` 1 本に。リソースパス指定が一部のリソースに効かない不具合を修正。GTK4 自体の使い方は GTK4 公式ドキュメントへ誘導。 / The bundled sample is now a single minimal `blinkgtk_browser`. Fixes resource-path handling for some resources. Points to the official GTK4 documentation for GTK4 itself. |
-| v1.1.0-build4(取り下げ / withdrawn) | 2026-07-29 | 150.0.7871.46 | v1.1.0-build5 で置き換えました。v1.1.0-build5 をご利用ください。 / Superseded by v1.1.0-build5. Please use v1.1.0-build5. |
-| v1.1.0-build3(取り下げ / withdrawn) | 2026-07-23 | 150.0.7871.46 | 同梱ドキュメントが同梱バイナリに存在しない API を記載していたため取り下げました。v1.1.0-build4 をご利用ください。 / Withdrawn: the bundled documentation referenced APIs that do not exist in the bundled binary. Please use v1.1.0-build4. |
-| v1.1.0-build2(取り下げ / withdrawn) | 2026-07-21 | 150.0.7871.46 | 同上の理由により取り下げました。v1.1.0-build4 をご利用ください。 / Withdrawn for the same reason. Please use v1.1.0-build4. |
+| バージョン / Version | 日付 / Date | Chromium | 累計DL / Downloads | 概要 / Summary |
+|---|---|---|---:|---|
+| **v1.1.0-build5**(最新 / current) | 2026-07-29 | 150.0.7871.46 | 13 | 同梱サンプルを最小構成の `blinkgtk_browser` 1 本に。リソースパス指定が一部のリソースに効かない不具合を修正。GTK4 自体の使い方は GTK4 公式ドキュメントへ誘導。 / The bundled sample is now a single minimal `blinkgtk_browser`. Fixes resource-path handling for some resources. Points to the official GTK4 documentation for GTK4 itself. |
+| v1.1.0-build4(取り下げ / withdrawn) | 2026-07-29 | 150.0.7871.46 | 11 | v1.1.0-build5 で置き換えました。v1.1.0-build5 をご利用ください。 / Superseded by v1.1.0-build5. Please use v1.1.0-build5. |
+| v1.1.0-build3(取り下げ / withdrawn) | 2026-07-23 | 150.0.7871.46 | 74 | 同梱ドキュメントが同梱バイナリに存在しない API を記載していたため取り下げました。v1.1.0-build5 をご利用ください。 / Withdrawn: the bundled documentation referenced APIs that do not exist in the bundled binary. Please use v1.1.0-build5. |
+| v1.1.0-build2(取り下げ / withdrawn) | 2026-07-21 | 150.0.7871.46 | 35 | 同上の理由により取り下げました。v1.1.0-build5 をご利用ください。 / Withdrawn for the same reason. Please use v1.1.0-build5. |
+
+> **累計ダウンロード数について / About the download counts**
+> 2026-07-29 時点の GitHub Releases の集計値です。取り下げた版の分も
+> そのまま保持されています (取り下げは公開停止であり、資産も集計も削除
+> しません)。自動更新はしていないため、最新の値は Releases でご確認ください。
+> 
+> These are the GitHub Releases counts as of 2026-07-29. Counts for withdrawn versions are
+> retained as-is: withdrawing stops distribution, it does not delete the assets or the
+> counts. They are not updated automatically, so check Releases for current figures.
 
 > **取り下げについて / About the withdrawals**
 > v1.1.0-build2 と v1.1.0-build3 は、同梱ドキュメントが同梱バイナリに存在しない API を
