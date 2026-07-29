@@ -76,7 +76,8 @@ Report problems or ask questions via **[Issues](https://github.com/daisy19gnu/bl
 
 | バージョン / Version | 日付 / Date | Chromium | 概要 / Summary |
 |---|---|---|---|
-| **v1.1.0-build4**(最新 / current) | 2026-07-29 | 150.0.7871.46 | 同梱ドキュメントと同梱バイナリの整合性を回復。ユーザーエージェント設定・Cookie 設定・権限要求 API を追加。アプリのビルド手引きとアップデート/アンインストール手順を収録。 / Bundled documentation now matches the bundled binary. Adds user-agent, cookie, and permission-request APIs, plus a build guide and update/uninstall instructions. |
+| **v1.1.0-build5**(最新 / current) | 2026-07-29 | 150.0.7871.46 | 同梱サンプルを最小構成の `blinkgtk_browser` 1 本に。リソースパス指定が一部のリソースに効かない不具合を修正。GTK4 自体の使い方は GTK4 公式ドキュメントへ誘導。 / The bundled sample is now a single minimal `blinkgtk_browser`. Fixes resource-path handling for some resources. Points to the official GTK4 documentation for GTK4 itself. |
+| v1.1.0-build4(取り下げ / withdrawn) | 2026-07-29 | 150.0.7871.46 | v1.1.0-build5 で置き換えました。v1.1.0-build5 をご利用ください。 / Superseded by v1.1.0-build5. Please use v1.1.0-build5. |
 | v1.1.0-build3(取り下げ / withdrawn) | 2026-07-23 | 150.0.7871.46 | 同梱ドキュメントが同梱バイナリに存在しない API を記載していたため取り下げました。v1.1.0-build4 をご利用ください。 / Withdrawn: the bundled documentation referenced APIs that do not exist in the bundled binary. Please use v1.1.0-build4. |
 | v1.1.0-build2(取り下げ / withdrawn) | 2026-07-21 | 150.0.7871.46 | 同上の理由により取り下げました。v1.1.0-build4 をご利用ください。 / Withdrawn for the same reason. Please use v1.1.0-build4. |
 
