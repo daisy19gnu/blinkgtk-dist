@@ -76,4 +76,19 @@ Report problems or ask questions via **[Issues](https://github.com/daisy19gnu/bl
 
 | バージョン / Version | 日付 / Date | Chromium | 概要 / Summary |
 |---|---|---|---|
-| **v1.1.0-build2**(初回公開 / first public release) | 2026-07-21 | 150.0.7871.46 | v1.1 系の初回一般公開。アイドル時 CPU 解消 (#115)・大規模リフロー後の永続白紙の根本修正 (#120) / First public v1.1 release. Idle-CPU fix; root fix for persistent blank pages after heavy reflow |
+| **v1.1.0-build4**(最新 / current) | 2026-07-29 | 150.0.7871.46 | 同梱ドキュメントと同梱バイナリの整合性を回復。ユーザーエージェント設定・Cookie 設定・権限要求 API を追加。アプリのビルド手引きとアップデート/アンインストール手順を収録。 / Bundled documentation now matches the bundled binary. Adds user-agent, cookie, and permission-request APIs, plus a build guide and update/uninstall instructions. |
+| v1.1.0-build3(取り下げ / withdrawn) | 2026-07-23 | 150.0.7871.46 | 同梱ドキュメントが同梱バイナリに存在しない API を記載していたため取り下げました。v1.1.0-build4 をご利用ください。 / Withdrawn: the bundled documentation referenced APIs that do not exist in the bundled binary. Please use v1.1.0-build4. |
+| v1.1.0-build2(取り下げ / withdrawn) | 2026-07-21 | 150.0.7871.46 | 同上の理由により取り下げました。v1.1.0-build4 をご利用ください。 / Withdrawn for the same reason. Please use v1.1.0-build4. |
+
+> **取り下げについて / About the withdrawals**
+> v1.1.0-build2 と v1.1.0-build3 は、同梱ドキュメントが同梱バイナリに存在しない API を
+> 20 種記載しており、記載どおりに書くとビルドできない状態でした。ダウンロードを停止して
+> います。すでに導入済みの場合は v1.1.0-build4 への更新をお願いします
+> (`INSTALL.md` のアップデート手順を参照)。バイナリ自体の動作に問題があったわけでは
+> ありません。
+> 
+> v1.1.0-build2 and v1.1.0-build3 have been withdrawn: their bundled documentation named
+> 20 APIs that do not exist in the bundled binary, so following it would not build.
+> Downloads are disabled. If you already installed one of them, please update to
+> v1.1.0-build4 (see the update section of `INSTALL.md`). The binaries themselves were
+> not defective.
