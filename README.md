@@ -33,7 +33,13 @@ See [`manifests/`](./manifests/) for **per-version package manifests** (auto-gen
 詳細は [INSTALL-ja.md](./INSTALL-ja.md) / [INSTALL-en.md](./INSTALL-en.md) を参照。概要 / Quick start:
 
 ```sh
-# RPM (Fedora 44)
+# Fedora: dnf リポジトリを登録すると dnf upgrade で追随できる
+# Fedora: register the dnf repository, then dnf upgrade keeps you current
+sudo curl -o /etc/yum.repos.d/blinkgtk.repo \
+  https://blinkgtk.org/repo/fedora/blinkgtk.repo
+sudo dnf install blinkgtk-bin
+
+# RPM を個別に / individual RPM (Fedora 44)
 sudo dnf install ./blinkgtk-bin-<ver>.fc44.x86_64.rpm
 
 # DEB (Debian / Ubuntu)
@@ -76,7 +82,7 @@ Report problems or ask questions via **[Issues](https://github.com/daisy19gnu/bl
 
 | バージョン / Version | 日付 / Date | Chromium | 累計DL / Downloads | 概要 / Summary |
 |---|---|---|---:|---|
-| **v1.2.0-build3**(最新 / current) | 2026-08-08 | 151.0.7922.71 | 33 | GPU 描画 (`BLINKGTK_GPU_MODE=egl`) が指定だけで使えるようになりました。ウィンドウの大きさを変えても文字が二重に見えません。 / GPU rendering works with a single environment variable. No doubled text while resizing. |
+| **v1.2.0-build4**（最新 / current） | 2026-08-08 | 151.0.7922.71 | 0 | `dnf` でインストールと更新ができるようになりました。動き続けるページ (Canvas・CSS アニメーション・動画) が静止しません。 / Install and update with `dnf`. Continuously animating pages no longer freeze. |
 | v1.2.0-build2 | 2026-08-03 | 151.0.7922.71 | 41 | 版が正しく名乗られるように (`navigator.userAgent`)。縦書き版面の実測値を JavaScript から読めます。 / Correct version in `navigator.userAgent`; vertical-writing metrics readable from JavaScript. |
 | v1.2.0-build1 | 2026-08-01 | 151.0.7922.71 | 46 | Chromium 151 へ更新。圏点を付けても行送りが太らず、ルビのはみ出しが指定どおりに効きます。 / Chromium 151. Emphasis marks no longer inflate line height; ruby overhang behaves as specified. |
 | v1.1.0-build6 | 2026-07-29 | 150.0.7871.46 | 196 | 同梱ドキュメントを全面是正し、記載と実装の一致を機械検査する仕組みを導入しました。 / Bundled documentation overhauled, with mechanical checks that it matches the implementation. |
