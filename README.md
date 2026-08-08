@@ -76,29 +76,16 @@ Report problems or ask questions via **[Issues](https://github.com/daisy19gnu/bl
 
 | バージョン / Version | 日付 / Date | Chromium | 累計DL / Downloads | 概要 / Summary |
 |---|---|---|---:|---|
-| **v1.1.0-build5**(最新 / current) | 2026-07-29 | 150.0.7871.46 | 13 | 同梱サンプルを最小構成の `blinkgtk_browser` 1 本に。リソースパス指定が一部のリソースに効かない不具合を修正。GTK4 自体の使い方は GTK4 公式ドキュメントへ誘導。 / The bundled sample is now a single minimal `blinkgtk_browser`. Fixes resource-path handling for some resources. Points to the official GTK4 documentation for GTK4 itself. |
-| v1.1.0-build4(取り下げ / withdrawn) | 2026-07-29 | 150.0.7871.46 | 11 | v1.1.0-build5 で置き換えました。v1.1.0-build5 をご利用ください。 / Superseded by v1.1.0-build5. Please use v1.1.0-build5. |
-| v1.1.0-build3(取り下げ / withdrawn) | 2026-07-23 | 150.0.7871.46 | 74 | 同梱ドキュメントが同梱バイナリに存在しない API を記載していたため取り下げました。v1.1.0-build5 をご利用ください。 / Withdrawn: the bundled documentation referenced APIs that do not exist in the bundled binary. Please use v1.1.0-build5. |
-| v1.1.0-build2(取り下げ / withdrawn) | 2026-07-21 | 150.0.7871.46 | 35 | 同上の理由により取り下げました。v1.1.0-build5 をご利用ください。 / Withdrawn for the same reason. Please use v1.1.0-build5. |
+| **v1.2.0-build3**(最新 / current) | 2026-08-08 | 151.0.7922.71 | 33 | GPU 描画 (`BLINKGTK_GPU_MODE=egl`) が指定だけで使えるようになりました。ウィンドウの大きさを変えても文字が二重に見えません。 / GPU rendering works with a single environment variable. No doubled text while resizing. |
+| v1.2.0-build2 | 2026-08-03 | 151.0.7922.71 | 41 | 版が正しく名乗られるように (`navigator.userAgent`)。縦書き版面の実測値を JavaScript から読めます。 / Correct version in `navigator.userAgent`; vertical-writing metrics readable from JavaScript. |
+| v1.2.0-build1 | 2026-08-01 | 151.0.7922.71 | 46 | Chromium 151 へ更新。圏点を付けても行送りが太らず、ルビのはみ出しが指定どおりに効きます。 / Chromium 151. Emphasis marks no longer inflate line height; ruby overhang behaves as specified. |
+| v1.1.0-build6 | 2026-07-29 | 150.0.7871.46 | 196 | 同梱ドキュメントを全面是正し、記載と実装の一致を機械検査する仕組みを導入しました。 / Bundled documentation overhauled, with mechanical checks that it matches the implementation. |
 
 > **累計ダウンロード数について / About the download counts**
-> 2026-07-29 時点の GitHub Releases の集計値です。取り下げた版の分も
-> そのまま保持されています (取り下げは公開停止であり、資産も集計も削除
-> しません)。自動更新はしていないため、最新の値は Releases でご確認ください。
-> 
-> These are the GitHub Releases counts as of 2026-07-29. Counts for withdrawn versions are
-> retained as-is: withdrawing stops distribution, it does not delete the assets or the
-> counts. They are not updated automatically, so check Releases for current figures.
-
-> **取り下げについて / About the withdrawals**
-> v1.1.0-build2 と v1.1.0-build3 は、同梱ドキュメントが同梱バイナリに存在しない API を
-> 20 種記載しており、記載どおりに書くとビルドできない状態でした。ダウンロードを停止して
-> います。すでに導入済みの場合は v1.1.0-build4 への更新をお願いします
-> (`INSTALL.md` のアップデート手順を参照)。バイナリ自体の動作に問題があったわけでは
-> ありません。
-> 
-> v1.1.0-build2 and v1.1.0-build3 have been withdrawn: their bundled documentation named
-> 20 APIs that do not exist in the bundled binary, so following it would not build.
-> Downloads are disabled. If you already installed one of them, please update to
-> v1.1.0-build4 (see the update section of `INSTALL.md`). The binaries themselves were
-> not defective.
+> 2026-08-08 時点の GitHub Releases の集計値です。取り下げた版は一覧から
+> 外していますが、資産も集計も削除していません。最新の値は Releases で
+> ご確認ください。
+>
+> These are the GitHub Releases counts as of 2026-08-08. Withdrawn versions are
+> omitted from this table; their assets and counts are not deleted. Check
+> Releases for current figures.
