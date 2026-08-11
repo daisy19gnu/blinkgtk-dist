@@ -82,7 +82,8 @@ Report problems or ask questions via **[Issues](https://github.com/daisy19gnu/bl
 
 | バージョン / Version | 日付 / Date | Chromium | 累計DL / Downloads | 概要 / Summary |
 |---|---|---|---:|---|
-| **v1.2.0-build5**（最新 / current） | 2026-08-10 | 151.0.7922.71 | 0 | 欧文の分綴 (`hyphens: auto`) が効くようになりました。52 言語の辞書を同梱。終了処理と診断出力も整理しています。 / Western hyphenation (`hyphens: auto`) now works, with dictionaries for 52 languages. Shutdown and diagnostic output also tidied up. |
+| **v1.2.0-build6**（最新 / current） | 2026-08-11 | 151.0.7922.108 | 0 | Chromium 151 系の最新安定版に更新しました。ウィンドウ操作と入力の経路の不具合が直り、登録したユーザースクリプトがページ本文より先に走ります。 / Updated to the latest stable in the Chromium 151 series. Fixes defects in the window and input paths; user scripts now run before the page's own scripts. |
+| **v1.2.0-build5** | 2026-08-10 | 151.0.7922.71 | 0 | 欧文の分綴 (`hyphens: auto`) が効くようになりました。52 言語の辞書を同梱。終了処理と診断出力も整理しています。 / Western hyphenation (`hyphens: auto`) now works, with dictionaries for 52 languages. Shutdown and diagnostic output also tidied up. |
 | **v1.2.0-build4** | 2026-08-08 | 151.0.7922.71 | 0 | `dnf` でインストールと更新ができるようになりました。動き続けるページ (Canvas・CSS アニメーション・動画) が静止しません。 / Install and update with `dnf`. Continuously animating pages no longer freeze. |
 | v1.2.0-build2 | 2026-08-03 | 151.0.7922.71 | 41 | 版が正しく名乗られるように (`navigator.userAgent`)。縦書き版面の実測値を JavaScript から読めます。 / Correct version in `navigator.userAgent`; vertical-writing metrics readable from JavaScript. |
 | v1.2.0-build1 | 2026-08-01 | 151.0.7922.71 | 46 | Chromium 151 へ更新。圏点を付けても行送りが太らず、ルビのはみ出しが指定どおりに効きます。 / Chromium 151. Emphasis marks no longer inflate line height; ruby overhang behaves as specified. |
