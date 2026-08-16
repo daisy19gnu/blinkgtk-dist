@@ -94,9 +94,13 @@ Report problems or ask questions via **[Issues](https://github.com/daisy19gnu/bl
 
 > **累計ダウンロード数について / About the download counts**
 > 2026-08-08 時点の GitHub Releases の集計値です。取り下げた版は一覧から
-> 外していますが、資産も集計も削除していません。最新の値は Releases で
-> ご確認ください。
+> 外しています。取り下げ版のうち 2026-08-16 に GitHub からリリースごと
+> 削除した 5 件 (v1.2.0-build3 / v1.1.0-build2〜5) の実績 129 件は、削除時点の
+> 記録に基づき blinkgtk.org / blinkgtk.com の累計表示へ恒久的に加算しています
+> (パッケージ実体は当プロジェクトの保管庫に全数保存)。
 >
-> These are the GitHub Releases counts as of 2026-08-08. Withdrawn versions are
-> omitted from this table; their assets and counts are not deleted. Check
-> Releases for current figures.
+> These are GitHub Releases counts. Withdrawn versions are omitted from this
+> table. Five withdrawn releases (v1.2.0-build3, v1.1.0-build2..5) were removed
+> from GitHub on 2026-08-16; their 129 recorded downloads are permanently
+> included in the totals shown on blinkgtk.org / blinkgtk.com, and the package
+> files themselves remain archived by the project.
