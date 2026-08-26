@@ -80,17 +80,20 @@ Report problems or ask questions via **[Issues](https://github.com/daisy19gnu/bl
 
 ## バージョン一覧 / Versions
 
-| バージョン / Version | 日付 / Date | Chromium | 累計DL / Downloads | 概要 / Summary |
+| バージョン / Version | 日付 / Date | Chromium | 累計DL※ / Downloads※ | 概要 / Summary |
 |---|---|---|---:|---|
-| **v1.2.0-build9**（最新 / current） | 2026-08-16 | 151.0.7922.108 | 0 | 描画経路を再起動なしで切り替えられるようになりました（BlinkShift 公開 API。切替は数百ミリ秒、失敗時は自動で元へ）。GtkApplication と正しく併用できる `blink_gtk_application_run()` と提示ポリシー API を追加、大きなユーザースクリプトが届かない問題も解消。 / Render paths can now be switched live without restarting (BlinkShift public API — a few hundred ms, automatic rollback on failure). Adds `blink_gtk_application_run()` for correct GtkApplication integration and a presentation-policy API; fixes large user scripts never reaching the renderer. |
-| v1.2.0-build8 | 2026-08-12 | 151.0.7922.108 | 0 | セキュリティ点検の結果を反映しました。**サイトごとのプロセス分離が既定で有効**になり（メモリ使用量が増えることがあります）、sandbox の可否判定を実測に変更、状態を問い合わせる API を追加しました。 / Applied the results of a security review: per-site process isolation is now on by default (which can increase memory use), sandbox availability is measured rather than inferred, and a new API reports the sandbox state. |
-| v1.2.0-build7 | 2026-08-12 | 151.0.7922.108 | 0 | 開発用パッケージが同梱するヘッダの版数を是正しました（build1〜6 は 1 版前を名乗っていました）。実行時 API は当初から正しく、影響はコンパイル時のマクロのみです。実行部分は build6 と同一です。 / Corrected the version macros in the header shipped with the development package; build1-6 claimed the previous release. The runtime API was always correct, so only compile-time macros were affected. The runtime is identical to build6. |
-| v1.2.0-build6 | 2026-08-11 | 151.0.7922.108 | 0 | Chromium 151 系の最新安定版に更新しました。ウィンドウ操作と入力の経路の不具合が直り、登録したユーザースクリプトがページ本文より先に走ります。 / Updated to the latest stable in the Chromium 151 series. Fixes defects in the window and input paths; user scripts now run before the page's own scripts. |
-| **v1.2.0-build5** | 2026-08-10 | 151.0.7922.71 | 0 | 欧文の分綴 (`hyphens: auto`) が効くようになりました。52 言語の辞書を同梱。終了処理と診断出力も整理しています。 / Western hyphenation (`hyphens: auto`) now works, with dictionaries for 52 languages. Shutdown and diagnostic output also tidied up. |
-| **v1.2.0-build4** | 2026-08-08 | 151.0.7922.71 | 0 | `dnf` でインストールと更新ができるようになりました。動き続けるページ (Canvas・CSS アニメーション・動画) が静止しません。 / Install and update with `dnf`. Continuously animating pages no longer freeze. |
-| v1.2.0-build2 | 2026-08-03 | 151.0.7922.71 | 41 | 版が正しく名乗られるように (`navigator.userAgent`)。縦書き版面の実測値を JavaScript から読めます。 / Correct version in `navigator.userAgent`; vertical-writing metrics readable from JavaScript. |
-| v1.2.0-build1 | 2026-08-01 | 151.0.7922.71 | 46 | Chromium 151 へ更新。圏点を付けても行送りが太らず、ルビのはみ出しが指定どおりに効きます。 / Chromium 151. Emphasis marks no longer inflate line height; ruby overhang behaves as specified. |
-| v1.1.0-build6 | 2026-07-29 | 150.0.7871.46 | 196 | 同梱ドキュメントを全面是正し、記載と実装の一致を機械検査する仕組みを導入しました。 / Bundled documentation overhauled, with mechanical checks that it matches the implementation. |
+| **v1.2.0-build9**（最新 / current） | 2026-08-16 | 151.0.7922.108 | 60 | 描画経路を再起動なしで切り替えられるようになりました（BlinkShift 公開 API。切替は数百ミリ秒、失敗時は自動で元へ）。GtkApplication と正しく併用できる `blink_gtk_application_run()` と提示ポリシー API を追加、大きなユーザースクリプトが届かない問題も解消。 / Render paths can now be switched live without restarting (BlinkShift public API — a few hundred ms, automatic rollback on failure). Adds `blink_gtk_application_run()` for correct GtkApplication integration and a presentation-policy API; fixes large user scripts never reaching the renderer. |
+| v1.2.0-build8 | 2026-08-12 | 151.0.7922.108 | 7 | セキュリティ点検の結果を反映しました。**サイトごとのプロセス分離が既定で有効**になり（メモリ使用量が増えることがあります）、sandbox の可否判定を実測に変更、状態を問い合わせる API を追加しました。 / Applied the results of a security review: per-site process isolation is now on by default (which can increase memory use), sandbox availability is measured rather than inferred, and a new API reports the sandbox state. |
+| v1.2.0-build7 | 2026-08-12 | 151.0.7922.108 | 2 | 開発用パッケージが同梱するヘッダの版数を是正しました（build1〜6 は 1 版前を名乗っていました）。実行時 API は当初から正しく、影響はコンパイル時のマクロのみです。実行部分は build6 と同一です。 / Corrected the version macros in the header shipped with the development package; build1-6 claimed the previous release. The runtime API was always correct, so only compile-time macros were affected. The runtime is identical to build6. |
+| v1.2.0-build6 | 2026-08-11 | 151.0.7922.108 | 2 | Chromium 151 系の最新安定版に更新しました。ウィンドウ操作と入力の経路の不具合が直り、登録したユーザースクリプトがページ本文より先に走ります。 / Updated to the latest stable in the Chromium 151 series. Fixes defects in the window and input paths; user scripts now run before the page's own scripts. |
+| **v1.2.0-build5** | 2026-08-10 | 151.0.7922.71 | 4 | 欧文の分綴 (`hyphens: auto`) が効くようになりました。52 言語の辞書を同梱。終了処理と診断出力も整理しています。 / Western hyphenation (`hyphens: auto`) now works, with dictionaries for 52 languages. Shutdown and diagnostic output also tidied up. |
+| **v1.2.0-build4** | 2026-08-08 | 151.0.7922.71 | 13 | `dnf` でインストールと更新ができるようになりました。動き続けるページ (Canvas・CSS アニメーション・動画) が静止しません。 / Install and update with `dnf`. Continuously animating pages no longer freeze. |
+| v1.2.0-build2 | 2026-08-03 | 151.0.7922.71 | 31 | 版が正しく名乗られるように (`navigator.userAgent`)。縦書き版面の実測値を JavaScript から読めます。 / Correct version in `navigator.userAgent`; vertical-writing metrics readable from JavaScript. |
+| v1.2.0-build1 | 2026-08-01 | 151.0.7922.71 | 37 | Chromium 151 へ更新。圏点を付けても行送りが太らず、ルビのはみ出しが指定どおりに効きます。 / Chromium 151. Emphasis marks no longer inflate line height; ruby overhang behaves as specified. |
+| v1.1.0-build6 | 2026-07-29 | 150.0.7871.46 | 171 | 同梱ドキュメントを全面是正し、記載と実装の一致を機械検査する仕組みを導入しました。 / Bundled documentation overhauled, with mechanical checks that it matches the implementation. |
+
+※ パッケージ (rpm / deb / tar.gz / tar.bz2) の取得数。SHA256SUMS・署名・公開鍵は含みません。
+  Counts package downloads only (rpm / deb / tar.gz / tar.bz2); checksum, signature and key files are excluded.
 
 > **累計ダウンロード数について / About the download counts**
 > 2026-08-08 時点の GitHub Releases の集計値です。取り下げた版は一覧から
