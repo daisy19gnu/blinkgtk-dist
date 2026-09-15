@@ -17,6 +17,26 @@ This is the public binary distribution repository for BlinkGTK. All artifacts ar
 
 The **`0.1` in package names and paths (e.g. `libblinkgtk-0.1.so.0`, `/usr/share/doc/blinkgtk-0.1/`) is the API version** — the same convention as GTK4's `gtk-4.0` and WebKitGTK's `webkitgtk-6.0`. It is **independent of the product version** (v1.1.0 etc.) and only changes on incompatible API/ABI revisions.
 
+### v1.2.2-build5 の同梱ヘッダにある `Since: 1.2.3` について
+
+v1.2.2-build4 / build5 の devel パッケージに同梱した `blink_gtk.h` に、
+**存在しない版 `1.2.3` を指す `Since:` が入っています。** 対象は次の 4 つです。
+
+```
+blink_gtk_init()               v1.2.2-build5 で利用できます (正しくは Since: 1.2.2)
+blink_web_view_get_gpu_mode()  v1.2.2-build5 で利用できます (正しくは Since: 1.2.2)
+blink_gtk_init_with_sandbox()  まだ出していません
+blink_gtk_sandbox_init()       まだ出していません
+```
+
+`1.2.3` という版はありません。次の版で書き直します。動作には影響しません。
+
+In the devel package of v1.2.2-build4 / build5, `blink_gtk.h` carries
+`Since: 1.2.3` — **a version that does not exist.** The first two functions
+above are available in v1.2.2-build5 (they should read `Since: 1.2.2`); the
+sandbox functions are not released yet. This will be corrected in the next
+release. It does not affect behaviour.
+
 ## パッケージの選び方 / Choosing a package
 
 | 環境 / Your system | 選ぶもの / Pick |
