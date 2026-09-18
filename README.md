@@ -86,6 +86,19 @@ sudo rpm --import BlinkGTK-GPG-KEY.asc
 rpm --checksig blinkgtk-bin-<ver>.fc44.x86_64.rpm    # 'digests signatures OK' を確認
 ```
 
+## 計測につかう道具 / Measurement tools
+
+[`tools/multiview-host/`](./tools/multiview-host) に、**WebView を N 個作って同じ URL を読ませるホスト**を置いています。配布 SDK だけで組めます (C 言語、依存は BlinkGTK と GTK4 のみ)。view 数を増やしたときのコストを他のエンジンと比べる用途を想定しています。
+
+- `--views N` / `--url URL` / `--seconds T`
+- `--profile-per-view` — view ごとに別の profile と cache を使う (v1.2.2-build6 以降)
+- `--fresh-profiles` — 起動前に profile を消す。**毎回まっさらから測る**
+- `--cache-bust` — 各 view の URL に `?blinkgtk_view=<i>` を足す
+
+名前付き profile は HTTP キャッシュをディスクに置くため、`--fresh-profiles` を付けないと 2 回目以降は温まった状態から始まります。
+
+A host that creates N WebViews and loads the same URL in each is provided under [`tools/multiview-host/`](./tools/multiview-host). It builds against the distributed SDK alone (C, depending only on BlinkGTK and GTK4), and is intended for comparing the cost of adding views against other engines. A named profile keeps its HTTP cache on disk, so without `--fresh-profiles` the second and later runs start warm.
+
 ## 不具合報告・質問 / Reporting problems
 
 配布パッケージの不具合や質問は、本リポジトリの **[Issues](https://github.com/daisy19gnu/blinkgtk-dist/issues)** にご報告ください(テンプレートがあります)。報告前に [`INSTALL.md`](./INSTALL.md) のトラブルシューティングもご確認ください。詳しくは [`SUPPORT.md`](./SUPPORT.md)。
