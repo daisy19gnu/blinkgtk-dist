@@ -60,6 +60,22 @@ Every run reported `loaded=N/N`.)
 Measure both and compare. If there is no difference, caching is not in play for that
 origin (`file://`, `no-store`, and so on).
 
+## `--profile-per-view` (v1.2.3 and later)
+
+Give each view its own profile and cache (`blink_web_view_new_with_profile`).
+
+| views | default | `--cache-bust` | `--profile-per-view` |
+|---|---|---|---|
+| 2 | 1 request | 2 | **2** |
+| 4 | 1 request | 4 | **4** |
+
+`--cache-bust` separates **the cache key only**; the profile stays shared
+(same origin, so cookies and localStorage are shared). `--profile-per-view`
+separates the whole profile.
+
+Storage lives under `profiles/mvview<i>` inside the process profile directory.
+It is **kept after the run**, so remove it first when measuring from cold.
+
 ## Notes
 
 The EGL path (`BLINKGTK_GPU_MODE=egl`) has a single dmabuf destination and is not built

@@ -61,6 +61,22 @@ cache を共有する。**
 両方を測って差を見るのが正しい使い方。差が出なければ、その配信元では
 キャッシュが効いていない (`file://` や `no-store` など)。
 
+## `--profile-per-view` (v1.2.3 以降)
+
+view ごとに別の profile / cache を使う (`blink_web_view_new_with_profile`)。
+
+| views | 既定 | `--cache-bust` | `--profile-per-view` |
+|---|---|---|---|
+| 2 | 要求 1 回 | 2 回 | **2 回** |
+| 4 | 要求 1 回 | 4 回 | **4 回** |
+
+`--cache-bust` が分けるのは **cache のキーだけ**で、profile は分かれない
+(オリジンが同じなので cookie・localStorage は共有)。
+`--profile-per-view` は profile ごと分ける。
+
+置き場は プロセスの profile の下の `profiles/mvview<i>`。
+**実行後も残る**ので、まっさらから測るなら消してから走らせる。
+
 ## 注意
 
 EGL 経路 (`BLINKGTK_GPU_MODE=egl`) は dmabuf の宛先が 1 つで、複数 view を同時に

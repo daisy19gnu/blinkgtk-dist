@@ -46,6 +46,7 @@ static int   g_seconds     = 30;
 static int   g_cache_bust  = 0;
 static const char* g_url   = "http://localhost:8123/index.html";
 static const char* g_resources = NULL;
+static int   g_profile_per_view = 0;
 static int   g_loaded      = 0;
 
 /* /proc/self/status から 1 行引く (kB 単位の整数を返す。読めなければ -1) */
@@ -66,8 +67,9 @@ static long read_status_kb(const char* key) {
 }
 
 static void report(const char* tag) {
-  printf("[multiview] %s views=%d cache_bust=%d VmRSS=%ldkB threads=%ld\n",
-         tag, g_views, g_cache_bust,
+  printf("[multiview] %s views=%d cache_bust=%d profile_per_view=%d "
+         "VmRSS=%ldkB threads=%ld\n",
+         tag, g_views, g_cache_bust, g_profile_per_view,
          read_status_kb("VmRSS:"), read_status_kb("Threads:"));
   fflush(stdout);
 }
@@ -99,6 +101,9 @@ static void usage(const char* argv0) {
     "  --url URL      各 view が読み込む URL\n"
     "  --seconds T    この秒数だけ走ってから終了する (既定 30)\n"
     "  --cache-bust   各 view の URL に ?blinkgtk_view=<i> を足す\n"
+    "  --profile-per-view\n"
+    "                 view ごとに別の profile / cache を使う\n"
+    "                 (blink_web_view_new_with_profile。1.2.3 以降)\n"
     "  --resources D  icudtl.dat / *.pak の置き場 (SDK では <prefix>/lib/chromium)\n"
     "                 省略すると MULTIVIEW_HOST_RESOURCES を見る。どちらも無ければ\n"
     "                 Chromium が実行ファイルの隣を探し、見つからなければ FATAL\n",
@@ -116,6 +121,8 @@ int main(int argc, char** argv) {
       g_seconds = atoi(argv[++i]);
     } else if (strcmp(argv[i], "--resources") == 0 && i + 1 < argc) {
       g_resources = argv[++i];
+    } else if (strcmp(argv[i], "--profile-per-view") == 0) {
+      g_profile_per_view = 1;
     } else if (strcmp(argv[i], "--cache-bust") == 0) {
       g_cache_bust = 1;
     } else if (strcmp(argv[i], "--help") == 0) {
@@ -164,7 +171,14 @@ int main(int argc, char** argv) {
     gtk_window_set_title(GTK_WINDOW(window), title);
     gtk_window_set_default_size(GTK_WINDOW(window), 640, 480);
 
-    GtkWidget* view = blink_web_view_new();
+    GtkWidget* view;
+    if (g_profile_per_view) {
+      char prof[32];
+      snprintf(prof, sizeof(prof), "mvview%d", i);
+      view = blink_web_view_new_with_profile(prof);
+    } else {
+      view = blink_web_view_new();
+    }
     if (!view) {
       fprintf(stderr, "[multiview] view %d の作成に失敗\n", i);
       return 1;
