@@ -61,7 +61,7 @@ cache を共有する。**
 両方を測って差を見るのが正しい使い方。差が出なければ、その配信元では
 キャッシュが効いていない (`file://` や `no-store` など)。
 
-## `--profile-per-view` (v1.2.3 以降)
+## `--profile-per-view` (v1.2.2-build6 以降)
 
 view ごとに別の profile / cache を使う (`blink_web_view_new_with_profile`)。
 

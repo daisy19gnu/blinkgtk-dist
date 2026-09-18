@@ -47,6 +47,7 @@ static int   g_cache_bust  = 0;
 static const char* g_url   = "http://localhost:8123/index.html";
 static const char* g_resources = NULL;
 static int   g_profile_per_view = 0;
+static int   g_fresh_profiles = 0;
 static int   g_loaded      = 0;
 
 /* /proc/self/status から 1 行引く (kB 単位の整数を返す。読めなければ -1) */
@@ -101,9 +102,13 @@ static void usage(const char* argv0) {
     "  --url URL      各 view が読み込む URL\n"
     "  --seconds T    この秒数だけ走ってから終了する (既定 30)\n"
     "  --cache-bust   各 view の URL に ?blinkgtk_view=<i> を足す\n"
+    "  --fresh-profiles\n"
+    "                 起動前に名前付き profile を消す。**毎回まっさらから測る**\n"
+    "                 (HTTP キャッシュはディスクに残るので、付けないと 2 回目\n"
+    "                  以降は温まった状態になる)\n"
     "  --profile-per-view\n"
     "                 view ごとに別の profile / cache を使う\n"
-    "                 (blink_web_view_new_with_profile。1.2.3 以降)\n"
+    "                 (blink_web_view_new_with_profile。1.2.2-build6 以降)\n"
     "  --resources D  icudtl.dat / *.pak の置き場 (SDK では <prefix>/lib/chromium)\n"
     "                 省略すると MULTIVIEW_HOST_RESOURCES を見る。どちらも無ければ\n"
     "                 Chromium が実行ファイルの隣を探し、見つからなければ FATAL\n",
@@ -121,6 +126,8 @@ int main(int argc, char** argv) {
       g_seconds = atoi(argv[++i]);
     } else if (strcmp(argv[i], "--resources") == 0 && i + 1 < argc) {
       g_resources = argv[++i];
+    } else if (strcmp(argv[i], "--fresh-profiles") == 0) {
+      g_fresh_profiles = 1;
     } else if (strcmp(argv[i], "--profile-per-view") == 0) {
       g_profile_per_view = 1;
     } else if (strcmp(argv[i], "--cache-bust") == 0) {
@@ -155,6 +162,21 @@ int main(int argc, char** argv) {
     setenv("MULTIVIEW_HOST_RESOURCES", g_resources, 1);
     printf("[multiview] resources=%s\n", g_resources);
     blink_gtk_set_resources_path(g_resources);
+  }
+
+  /* 毎回まっさらから測るための掃除。**blink_gtk_init より前**に行う。
+   * 名前付き profile は HTTP キャッシュをディスクに置くので、消さないと
+   * 2 回目以降は温まった状態から始まる。 */
+  if (g_fresh_profiles && g_profile_per_view) {
+    for (int i = 0; i < g_views; i++) {
+      char cmd[512];
+      snprintf(cmd, sizeof(cmd),
+               "rm -rf \"$HOME/.blink_gtk/profiles/mvview%d\"", i);
+      if (system(cmd) != 0) {
+        fprintf(stderr, "[multiview] profile の掃除に失敗 (view %d)\n", i);
+      }
+    }
+    printf("[multiview] 名前付き profile を消してから始める\n");
   }
 
   if (!blink_gtk_init(&argc, &argv)) {

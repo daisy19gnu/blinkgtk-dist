@@ -60,7 +60,7 @@ Every run reported `loaded=N/N`.)
 Measure both and compare. If there is no difference, caching is not in play for that
 origin (`file://`, `no-store`, and so on).
 
-## `--profile-per-view` (v1.2.3 and later)
+## `--profile-per-view` (v1.2.2-build6 and later)
 
 Give each view its own profile and cache (`blink_web_view_new_with_profile`).
 
