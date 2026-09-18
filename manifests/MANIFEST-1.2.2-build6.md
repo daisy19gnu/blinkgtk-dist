@@ -14,8 +14,11 @@
 | `blinkgtk-bin-devel-1.2.2-build6.fc44.x86_64.rpm` | 36K | `b8090ed212134feb07eb4834dec2e2b8ca3b9745b466d449076c46e04623cc10` |
 | `blinkgtk-bin-doc-1.2.2-build6.fc44.noarch.rpm` | 404K | `ba2948341b52d6a153b64f8d9c472293271ba92c4564126b76a2e889ef90ce43` |
 | `blinkgtk-bin-gir-1.2.2-build6.fc44.x86_64.rpm` | 32K | `c0dfaabeb2399ad2e04652098a790ff694075f818b1cad8991087d0a63fd69b9` |
-| `libblinkgtk-0.1-0_1.2.2-build6_amd64.deb` | 149M | `0639dff351c17c85e15b7d10d7590ad2f376c8714b6438b1a755c6690a4cebfe` |
-| `libblinkgtk-0.1-dev_1.2.2-build6_amd64.deb` | 32K | `b9552fd408e462044f4315462e0abb6406ecf7f581f5c0aad6ab663b1977f323` |
+| `gir1.2-blinkgtk-0.1_1.2.2-build6-1_amd64.deb` | 24K | `eb60a15640dc0d42b62c63fb11e72b6e0b75ab09d63f6ab7b01b5196ccb92ee6` |
+| `libblinkgtk-0.1-0-dbgsym_1.2.2-build6-1_amd64.deb` | 22M | `e22861ce69275076d39d7b803376f0d3e3afd12c328e6cbc80b9484d2443e740` |
+| `libblinkgtk-0.1-0_1.2.2-build6-1_amd64.deb` | 124M | `7bfd8651e4063e7bd3b1a7bc0bef11c24b086bc4f6030cee817c3f5f0987209e` |
+| `libblinkgtk-0.1-dev_1.2.2-build6-1_amd64.deb` | 28K | `52bb4dab1fc53551047774e65ef4efd22f1ac882382ab03079d4d07caff21905` |
+| `libblinkgtk-0.1-doc_1.2.2-build6-1_all.deb` | 4.0K | `cdeee169e95df2d37411e69de29a6a7f4e603c104143f96030ef32c405b7e6aa` |
 
 ## バイナリ tarball (tar.gz / tar.bz2 は同一内容 / identical contents)
 
@@ -75,15 +78,30 @@
 
 ## DEB (Debian / Ubuntu、amd64)
 
-### `libblinkgtk-0.1-0_1.2.2-build6_amd64.deb`
+### `gir1.2-blinkgtk-0.1_1.2.2-build6-1_amd64.deb`
 
-- **パッケージ / Package**: libblinkgtk-0.1-0 — GTK4 bindings for Chromium Blink rendering engine (runtime)
+- **パッケージ / Package**: gir1.2-blinkgtk-0.1 — GObject Introspection data for BlinkGTK
+- **ファイル数 / Files**: 4
+
+### `libblinkgtk-0.1-0-dbgsym_1.2.2-build6-1_amd64.deb`
+
+- **パッケージ / Package**: libblinkgtk-0.1-0-dbgsym — debug symbols for libblinkgtk-0.1-0
+- **ファイル数 / Files**: 523
+
+### `libblinkgtk-0.1-0_1.2.2-build6-1_amd64.deb`
+
+- **パッケージ / Package**: libblinkgtk-0.1-0 — GTK4 bindings for Chromium Blink rendering engine
 - **ファイル数 / Files**: 684
 
-### `libblinkgtk-0.1-dev_1.2.2-build6_amd64.deb`
+### `libblinkgtk-0.1-dev_1.2.2-build6-1_amd64.deb`
 
-- **パッケージ / Package**: libblinkgtk-0.1-dev — GTK4 bindings for Chromium Blink rendering engine (development files)
-- **ファイル数 / Files**: 7
+- **パッケージ / Package**: libblinkgtk-0.1-dev — GTK4 bindings for Chromium Blink (development files)
+- **ファイル数 / Files**: 8
+
+### `libblinkgtk-0.1-doc_1.2.2-build6-1_all.deb`
+
+- **パッケージ / Package**: libblinkgtk-0.1-doc — Documentation for BlinkGTK
+- **ファイル数 / Files**: 2
 
 ---
 
