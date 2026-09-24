@@ -74,6 +74,18 @@ sudo apt install ./libblinkgtk-0.1-0_<ver>_amd64.deb
 sudo tar -C / -xzf blinkgtk-<ver>-linux-x86_64.tar.gz && sudo ldconfig
 ```
 
+## Windows (BlinkGTK for Windows)
+
+BlinkGTK-Windows が作成している Windows 版です。**Linux 版とは版数が違います** (Chromium 152)。
+Windows 10 (64bit) 以降の x64 が対象で、確認したのは Windows 11 Pro (build 26200) です。描画経路は software のみ、コード署名はまだありません。
+The Windows build, produced by BlinkGTK-Windows. **Its version differs from the Linux build** (Chromium 152). It targets x64 Windows 10 (64-bit) or later and was verified on Windows 11 Pro (build 26200). Rendering uses the software path only, and the package is not code-signed yet.
+
+| 版 / Version | 日付 / Date | Chromium | ファイル / Files |
+|---|---|---|---|
+| **v1.2.1-build3-windows** | 2026-09-24 | 152.0.7977.64 | [portable ZIP](https://github.com/daisy19gnu/blinkgtk-dist/releases/download/v1.2.1-build3-windows/blinkgtk-1.2.1-build3-windows-x64.zip) · [devel ZIP](https://github.com/daisy19gnu/blinkgtk-dist/releases/download/v1.2.1-build3-windows/blinkgtk-devel-1.2.1-build3-windows-x64.zip) · [SHA256SUMS](https://github.com/daisy19gnu/blinkgtk-dist/releases/download/v1.2.1-build3-windows/SHA256SUMS) |
+
+はじめかた / Getting started: [日本語](https://blinkgtk.org/docs/windows-getting-started-ja.html) · [English](https://blinkgtk.org/docs/windows-getting-started-en.html)
+
 ## 検証 / Verification
 
 各 Release の `SHA256SUMS` と照合してください / Verify against `SHA256SUMS` in each Release:
