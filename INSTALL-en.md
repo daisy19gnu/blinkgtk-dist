@@ -11,39 +11,39 @@ Download packages from [Releases](https://github.com/daisy19gnu/blinkgtk-dist/re
 | Item | Requirement |
 |---|---|
 | Architecture | x86_64 (amd64) |
-| glibc | **2.43 or later** (Fedora 44 / Ubuntu 25.10 or equivalent) |
+| glibc | **2.44 or later** (Fedora 45 or equivalent) |
 | Display | **Wayland session required** (X11-only environments are not supported) |
 | GTK | GTK4 (4.6+, verified with 4.22) |
 | GPU | Not required (software rendering by default; EGL mode is experimental) |
 
-## 1. RPM (Fedora 44 / x86_64)
+## 1. RPM (Fedora 45 / x86_64)
 
 Dependencies are **resolved automatically by dnf**.
 
 ```sh
 # runtime (required)
-sudo dnf install ./blinkgtk-bin-<ver>.fc44.x86_64.rpm
+sudo dnf install ./blinkgtk-release-*.noarch.rpm ./blinkgtk-bin-<ver>.fc45.x86_64.rpm
 
 # for application development (headers + pkg-config)
-sudo dnf install ./blinkgtk-bin-devel-<ver>.fc44.x86_64.rpm
+sudo dnf install ./blinkgtk-bin-devel-<ver>.fc45.x86_64.rpm
 
 # for Python (PyGObject) / GJS
-sudo dnf install ./blinkgtk-bin-gir-<ver>.fc44.x86_64.rpm
+sudo dnf install ./blinkgtk-bin-gir-<ver>.fc45.x86_64.rpm
 
 # manuals (Japanese/English)
-sudo dnf install ./blinkgtk-bin-doc-<ver>.fc44.noarch.rpm
+sudo dnf install ./blinkgtk-bin-doc-<ver>.fc45.noarch.rpm
 ```
 
 RPMs are GPG-signed. Verify with the bundled public key `BlinkGTK-GPG-KEY.asc`:
 
 ```sh
 sudo rpm --import BlinkGTK-GPG-KEY.asc
-rpm --checksig blinkgtk-bin-<ver>.fc44.x86_64.rpm
+rpm --checksig blinkgtk-bin-<ver>.fc45.x86_64.rpm
 ```
 
 ## 2. DEB (Debian / Ubuntu / amd64)
 
-Dependencies are **resolved automatically by apt** (a release with glibc 2.43+ is required).
+Dependencies are **resolved automatically by apt** (a release with glibc 2.44+ is required).
 
 ```sh
 sudo apt install ./libblinkgtk-0.1-0_<ver>_amd64.deb      # runtime
@@ -66,7 +66,7 @@ sudo dnf install gtk4 nss alsa-lib cups-libs dbus-libs at-spi2-core at-spi2-atk 
   gstreamer1 gstreamer1-plugins-base openssl-libs sqlite-libs libcurl
 ```
 
-**Debian / Ubuntu (a release with glibc 2.43+)**:
+**Debian / Ubuntu (a release with glibc 2.44+)**:
 
 ```sh
 sudo apt install libgtk-4-1 libnss3 libasound2t64 libcups2t64 libdbus-1-3 \
@@ -126,7 +126,7 @@ pkg-config --modversion blinkgtk-0.1         # with devel installed
 | Symptom | Cause and fix |
 |---|---|
 | `error while loading shared libraries: ...: cannot open shared object file` | Missing dependency. Identify it with §3-3 and install the providing package |
-| `GLIBC_2.43 not found` | Your distribution's glibc is too old. Use a release meeting §0 |
+| `GLIBC_2.44 not found` | Your distribution's glibc is too old. Use a release meeting §0 |
 | Crashes at startup with sandbox errors (containers etc.) | The environment does not support the Chromium sandbox. Start with `BLINKGTK_NO_SANDBOX=1` |
 | No window / `Failed to connect to Wayland display` | Run inside a Wayland session (X11 sessions are unsupported). Check `echo $WAYLAND_DISPLAY` |
 | No audio / video playback | Missing GStreamer plugins. Add `gstreamer1-plugins-good` (Fedora) / `gstreamer1.0-plugins-good` (Debian) |

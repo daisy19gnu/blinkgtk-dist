@@ -11,39 +11,39 @@
 | 項目 | 要件 |
 |---|---|
 | アーキテクチャ | x86_64 (amd64) |
-| glibc | **2.43 以上**(Fedora 44 / Ubuntu 25.10 相当以降) |
+| glibc | **2.44 以上**(Fedora 45 相当以降) |
 | ディスプレイ | **Wayland セッション必須**(X11 のみの環境では動作しません) |
 | GTK | GTK4(4.6 以上、4.22 で検証) |
 | GPU | 不要(既定は software レンダリング。EGL モードは実験的) |
 
-## 1. RPM(Fedora 44 / x86_64)
+## 1. RPM(Fedora 45 / x86_64)
 
 依存パッケージは **dnf が自動解決**します。
 
 ```sh
 # runtime(実行に必須)
-sudo dnf install ./blinkgtk-bin-<ver>.fc44.x86_64.rpm
+sudo dnf install ./blinkgtk-release-*.noarch.rpm ./blinkgtk-bin-<ver>.fc45.x86_64.rpm
 
 # アプリを開発する場合(ヘッダ + pkg-config)
-sudo dnf install ./blinkgtk-bin-devel-<ver>.fc44.x86_64.rpm
+sudo dnf install ./blinkgtk-bin-devel-<ver>.fc45.x86_64.rpm
 
 # Python (PyGObject) / GJS から使う場合
-sudo dnf install ./blinkgtk-bin-gir-<ver>.fc44.x86_64.rpm
+sudo dnf install ./blinkgtk-bin-gir-<ver>.fc45.x86_64.rpm
 
 # マニュアル(日英)
-sudo dnf install ./blinkgtk-bin-doc-<ver>.fc44.noarch.rpm
+sudo dnf install ./blinkgtk-bin-doc-<ver>.fc45.noarch.rpm
 ```
 
 RPM は GPG 署名済みです。公開鍵 `BlinkGTK-GPG-KEY.asc`(本リポジトリ同梱)で検証できます:
 
 ```sh
 sudo rpm --import BlinkGTK-GPG-KEY.asc
-rpm --checksig blinkgtk-bin-<ver>.fc44.x86_64.rpm
+rpm --checksig blinkgtk-bin-<ver>.fc45.x86_64.rpm
 ```
 
 ## 2. DEB(Debian / Ubuntu / amd64)
 
-依存パッケージは **apt が自動解決**します(glibc 2.43 以上のリリースが必要です)。
+依存パッケージは **apt が自動解決**します(glibc 2.44 以上のリリースが必要です)。
 
 ```sh
 sudo apt install ./libblinkgtk-0.1-0_<ver>_amd64.deb      # runtime
@@ -66,7 +66,7 @@ sudo dnf install gtk4 nss alsa-lib cups-libs dbus-libs at-spi2-core at-spi2-atk 
   gstreamer1 gstreamer1-plugins-base openssl-libs sqlite-libs libcurl
 ```
 
-**Debian / Ubuntu(glibc 2.43 以上のリリース)**:
+**Debian / Ubuntu(glibc 2.44 以上のリリース)**:
 
 ```sh
 sudo apt install libgtk-4-1 libnss3 libasound2t64 libcups2t64 libdbus-1-3 \
@@ -126,7 +126,7 @@ pkg-config --modversion blinkgtk-0.1         # devel 導入時
 | 症状 | 原因と対処 |
 |---|---|
 | `error while loading shared libraries: ...: cannot open shared object file` | 依存不足。§3-3 の確認コマンドで特定し、該当パッケージを導入 |
-| `GLIBC_2.43 not found` | glibc が古いディストリビューションです。§0 の要件を満たすリリースをご利用ください |
+| `GLIBC_2.44 not found` | glibc が古いディストリビューションです。§0 の要件を満たすリリースをご利用ください |
 | 起動直後に sandbox 関連のエラーで落ちる(コンテナ等) | 環境が Chromium sandbox に対応していません。`BLINKGTK_NO_SANDBOX=1` を設定して起動 |
 | ウィンドウが出ない / `Failed to connect to Wayland display` | Wayland セッションで実行してください(X11 セッションは非対応)。`echo $WAYLAND_DISPLAY` で確認 |
 | 音が出ない / 動画が再生されない | GStreamer プラグイン不足。`gstreamer1-plugins-good`(Fedora)/ `gstreamer1.0-plugins-good`(Debian)を追加 |

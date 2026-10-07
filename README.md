@@ -54,18 +54,15 @@ See [`manifests/`](./manifests/) for **per-version package manifests** (auto-gen
 詳細は [INSTALL-ja.md](./INSTALL-ja.md) / [INSTALL-en.md](./INSTALL-en.md) を参照。概要 / Quick start:
 
 ```sh
-# Fedora: dnf リポジトリを登録すると dnf upgrade で追随できる
-# Fedora: register the dnf repository, then dnf upgrade keeps you current
-# リポジトリは Fedora の版ごとに分かれています (v1.2.3-build1 から)。以前に登録した
-# 設定のままでも Fedora 44 向けを受け取れます。Fedora 45 向けを受け取るには取り直してください
-# The repository is split by Fedora release (from v1.2.3-build1). An older .repo keeps
-# receiving the Fedora 44 packages; fetch it again to receive the Fedora 45 packages
-sudo curl -o /etc/yum.repos.d/blinkgtk.repo \
-  https://blinkgtk.org/repo/fedora/blinkgtk.repo
+# Fedora 45: dnf リポジトリを登録すると dnf upgrade で追随できる (v1.2.4-build1 から blinkgtk-release で登録)
+# Fedora 45: register the dnf repository, then dnf upgrade keeps you current (from v1.2.4-build1, via blinkgtk-release)
+# 以前 curl で置いた .repo の方も、この 1 行を 1 回だけ実行してください。Fedora 44 は v1.2.3 に留まります
+# If you placed the .repo with curl before, run this line once. Fedora 44 stays on v1.2.3
+sudo dnf install https://blinkgtk.org/repo/fedora/blinkgtk-release.noarch.rpm
 sudo dnf install blinkgtk-bin
 
-# RPM を個別に / individual RPM (Fedora 45 なら .fc45、Fedora 44 なら .fc44)
-sudo dnf install ./blinkgtk-bin-<ver>.fc45.x86_64.rpm
+# RPM を個別に / individual RPM (blinkgtk-release も一緒に / together with blinkgtk-release)
+sudo dnf install ./blinkgtk-release-*.noarch.rpm ./blinkgtk-bin-<ver>.fc45.x86_64.rpm
 
 # DEB (Debian / Ubuntu)
 sudo apt install ./libblinkgtk-0.1-0_<ver>_amd64.deb
@@ -102,7 +99,7 @@ RPMs are GPG-signed. The public key is [`BlinkGTK-GPG-KEY.asc`](./BlinkGTK-GPG-K
 
 ```sh
 sudo rpm --import BlinkGTK-GPG-KEY.asc
-rpm --checksig blinkgtk-bin-<ver>.fc44.x86_64.rpm    # 'digests signatures OK' を確認
+rpm --checksig blinkgtk-bin-<ver>.fc45.x86_64.rpm    # 'digests signatures OK' を確認
 ```
 
 ## 計測につかう道具 / Measurement tools
@@ -134,7 +131,8 @@ Report problems or ask questions via **[Issues](https://github.com/daisy19gnu/bl
 
 | バージョン / Version | 日付 / Date | Chromium | 累計DL※ / Downloads※ | 概要 / Summary |
 |---|---|---|---:|---|
-| **v1.2.3-build4**（最新 / current） | 2026-09-28 | 154.0.8037.57 | 31 | software の描画で画素のコピーを省き、拡大率 2 でアニメーションが約 24% 多く回るようになりました。load_html の base_uri が反映されない問題、支援技術のバスが応答しないと最初の描画が約 25 秒遅れる問題、許可の保存を UI スレッドで読む問題、ibus でビューを閉じるときの警告を修正しています / Software rendering no longer copies every frame, so animations run about 24% more often at scale 2. Also fixes load_html not applying base_uri, a first paint delayed by about 25 seconds when the accessibility bus does not respond, stored permissions being read on the UI thread, and GTK warnings with ibus when a view is closed |
+| **v1.2.4-build1**（最新 / current） | 2026-10-07 | 155.0.8059.39 | 0 | レンダリングエンジンを Chromium 155 に更新しました。ルビの後の行が上にずれる不具合の上流の修正が入り、縦書きの行末のぶら下げが既定で有効です。拡大率 1 の画面では変わった範囲だけを描き、CPU の使用率が下がります。RPM は Fedora 45 以降向けだけになりました (Fedora 44 は v1.2.3 まで)。 / Updated to Chromium 155. Includes the upstream fix for lines after ruby shifting up; hanging punctuation at the line end in vertical text is enabled by default. On a scale-1 display only the changed area is drawn, which lowers CPU usage. RPMs are now for Fedora 45 or later only (Fedora 44 up to v1.2.3). |
+| **v1.2.3-build4** | 2026-09-28 | 154.0.8037.57 | 189 | software の描画で画素のコピーを省き、拡大率 2 でアニメーションが約 24% 多く回るようになりました。load_html の base_uri が反映されない問題、支援技術のバスが応答しないと最初の描画が約 25 秒遅れる問題、許可の保存を UI スレッドで読む問題、ibus でビューを閉じるときの警告を修正しています / Software rendering no longer copies every frame, so animations run about 24% more often at scale 2. Also fixes load_html not applying base_uri, a first paint delayed by about 25 seconds when the accessibility bus does not respond, stored permissions being read on the UI thread, and GTK warnings with ibus when a view is closed |
 | **v1.2.3-build3** | 2026-09-26 | 154.0.8037.57 | 70 | 独自スキーム (`ebook://` など) で配った 5 MB 以上の音声を `<audio>` で開くと、アプリのウィンドウごと応答しなくなる問題を直しました。長い朗読音声もそのまま再生・シークできます。公開 API は変わりません / Opening audio of 5 MB or more served over a custom scheme (such as `ebook://`) with `<audio>` no longer makes the whole application window stop responding. Long narration audio can be played and seeked as is. The public API is unchanged |
 | **v1.2.3-build2** | 2026-09-25 | 154.0.8037.57 | 81 | ページを PDF ファイルに書き出せるようになりました (`blink_web_view_print_to_pdf_with_options()`)。ダウンロードの保存、リンク先と新しいウィンドウの開き方の判断、カメラとマイク、HTTP 認証への応答、許可の決定を覚える口、既定のフォントと最小文字サイズの指定も加わりました。swiftshader モードで画面に何も出なかった問題も直しています (外部利用者のご報告)。実行時に CUPS のライブラリ (`libcups.so.2`) が要ります。`/usr/bin/blinkgtk-simple-browser` は `/usr/bin/blinkgtk-browser` になりました。 / Pages can now be written to PDF files. Saving downloads, deciding where links and new windows open, the camera and microphone, answering HTTP authentication, remembering permission decisions, and choosing default fonts and a minimum font size are added. swiftshader mode showing nothing on screen is fixed (reported by an external user). The CUPS library (`libcups.so.2`) is now required at run time. `/usr/bin/blinkgtk-simple-browser` is now `/usr/bin/blinkgtk-browser`. |
 | **v1.2.3-build1** | 2026-09-24 | 154.0.8037.57 | 70 | レンダリングエンジンを Chromium 154 に更新しました。`blink_web_view_set_javascript_enabled(FALSE)` などの設定がページに反映されるようになりました（1.2.2 までは値を覚えるだけで、`FALSE` にしてもスクリプトは実行されていました）。画像と localStorage の無効化、既定の文字サイズも効きます。既定の文字コードはまだ効きません。入力メソッドは GTK の選択に従います（1.2.2 の動作は `BLINKGTK_IM_MODULE=ibus`）。独自スキームの MIME の引数と `fetch()`、パッケージ版でのリソースの自動検出も直しました（外部利用者のご報告）。Fedora 45 向けの RPM（.fc45）も用意しています。 / Updated to Chromium 154. Settings such as `blink_web_view_set_javascript_enabled(FALSE)` now take effect (up to 1.2.2 the value was only stored and scripts still ran). Turning off images and localStorage, and the default font size, also work; the default encoding does not yet. The input method follows GTK's choice (`BLINKGTK_IM_MODULE=ibus` restores 1.2.2). Custom-scheme MIME parameters and `fetch()`, and resource detection in packaged builds, are fixed (reported by an external user). Fedora 45 RPMs (.fc45) are also provided. |
