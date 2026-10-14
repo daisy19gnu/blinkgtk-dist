@@ -46,8 +46,8 @@ rpm --checksig blinkgtk-bin-<ver>.fc45.x86_64.rpm
 Dependencies are **resolved automatically by apt** (a release with glibc 2.44+ is required).
 
 ```sh
-sudo apt install ./libblinkgtk-0.1-0_<ver>_amd64.deb      # runtime
-sudo apt install ./libblinkgtk-0.1-dev_<ver>_amd64.deb    # development
+sudo apt install ./libblinkgtk-0.1-0_<ver>-1_amd64.deb      # runtime
+sudo apt install ./libblinkgtk-0.1-dev_<ver>-1_amd64.deb    # development
 ```
 
 ## 3. tarball (other Linux / glibc / x86_64)
