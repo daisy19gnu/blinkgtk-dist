@@ -137,7 +137,7 @@ Report problems or ask questions via **[Issues](https://github.com/daisy19gnu/bl
 
 | バージョン / Version | 日付 / Date | Chromium | 累計DL※ / Downloads※ | 概要 / Summary |
 |---|---|---|---:|---|
-| **v1.2.6-build4**（最新 / current） | 2026-11-07 | 157.0.8103.38 | 0 | メモリの取扱いの修正を行いました。Chromium は build1〜build3 と同じで、使い方の変更はありません / Fixed how memory is handled. Chromium is the same as build1 to build3; nothing changes in how you use BlinkGTK. |
+| **v1.2.6-build4**（最新 / current） | 2026-11-07 | 157.0.8103.38 | 1 | メモリの取扱いの修正を行いました。Chromium は build1〜build3 と同じで、使い方の変更はありません / Fixed how memory is handled. Chromium is the same as build1 to build3; nothing changes in how you use BlinkGTK. |
 | v1.2.6-build3 | 2026-11-06 | 157.0.8103.38 | 19 | メモリの取扱いの修正を行いました。Chromium は build1・build2 と同じで、使い方の変更はありません / Fixed how memory is handled. Chromium is the same as build1 and build2; nothing changes in how you use BlinkGTK. |
 | v1.2.6-build2 | 2026-11-05 | 157.0.8103.38 | 30 | メモリの取扱いの修正を行いました。Chromium は build1 と同じで、使い方の変更はありません / Fixed how memory is handled. Chromium is the same as build1; nothing changes in how you use BlinkGTK. |
 | v1.2.6-build1 | 2026-11-04 | 157.0.8103.38 | 19 | Chromium 157 に更新しました。縦書きで、ルビの付いた字の下線・傍線がルビと重ならなくなり、つないだ形の絵文字が 1 つの絵文字として表示され、`text-decoration-inset` が使えます。縦書きの行を最後まで埋める上流の修正を取り込み、起動の短縮を入れ直しました (頁の読み込みの完了が約 0.3 秒早い)。 / Updated to Chromium 157. In vertical text, underlines on ruby-annotated text no longer overlap the ruby, joined emoji render as a single emoji, and `text-decoration-inset` works. Includes the upstream fix that keeps vertical lines filled, and restores the startup optimization (pages finish loading about 0.3 s sooner). |
